@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday SANKU!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fce4ec;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #d81b60;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #messageCard {
+      display: none;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 600px;
+      animation: fadeIn 1s forwards;
+      position: relative;
+      z-index: 10;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      font-size: 1rem;
+      background: #d81b60;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .cake {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background-color: #ff4081;
+      animation: fall 4s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Click the Button to Reveal the Surprise! 🎉</h1>
+  <button class="btn" onclick="showMessage()">Click Here</button>
+
+  <div id="messageCard">
+    <div class="cake">🎂🎉🎉</div>
+    <p><strong>Happy birthday SANKU / "BO"! 🎉</strong><br><br>
+      Toh aaj tu 12 saal kaa ho gaya hai.<br>
+      Fir bhi tune <i>BO</i> waali harkate karna nahi chhoda hai 😁😂.<br><br>
+      Tune bola tha ki birthday ko aana... par mere pair ko laga hai,<br>
+      isliye mai nahi aa paaya 😔<br><br>
+      Birthday enjoy kar achhe se aur chill reh bro!<br>
+      Buddha Always bless you 🙏<br><br>
+      Ek aur baar — <strong>Happy Birthday! 🎂</strong><br>
+      Haste 😂😂 reh, khelte reh ⚽🏏🏸, khush reh 🤗<br><br>
+      Aur jaldi aaa... GTA khelna hai! 🎮🔥
+    </p>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById('messageCard').style.display = 'block';
+
+      // Confetti (poppers) from top
+      for (let i = 0; i < 150; i++) {
+        let confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+        confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+        confetti.style.opacity = Math.random();
+        confetti.style.zIndex = 0;
+        document.body.appendChild(confetti);
+      }
+    }
+  </script>
+</body>
+</html>
